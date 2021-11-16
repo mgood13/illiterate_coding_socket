@@ -9,6 +9,8 @@ socketio = SocketIO(app)
 def index():
     return render_template('index.html')
 
+
+
 @socketio.on("message")
 def handleMessage(data):
     emit("new_message",data,broadcast=True)
