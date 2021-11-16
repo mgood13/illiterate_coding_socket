@@ -14,6 +14,17 @@ def index():
 @socketio.on("message")
 def handleMessage(data):
     emit("new_message",data,broadcast=True)
+
+def messageReceived(methods = ['GET', 'POST']):
+    print('Got your message')
+
+@socketio.on('my event')
+def handle_my_custom_event(json, methods = ['GET', 'POST']):
+    print('Message my event: {}'.format(json))
+
+    # pass to sql
+
+    socketio.emit('my response', json, callback=messageReceived)
     
 if __name__ == "__main__":
     socketio.run(app, debug=True)
