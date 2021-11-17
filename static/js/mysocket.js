@@ -8,6 +8,7 @@ socket = io()
 	})
 
     socket.on('connect', function(){
+     console.log('Here')
     socket.emit('my event', {data: 'User Connected'})
 
 
