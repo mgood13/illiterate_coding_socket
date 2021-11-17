@@ -11,7 +11,6 @@ socket = io()
     socket.emit('my event', {data: 'User Connected'})
 
 
-
     });
 
     socket.on('my response', function(msg){

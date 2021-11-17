@@ -24,7 +24,7 @@ def handle_my_custom_event(json, methods = ['GET', 'POST']):
 
     # pass to sql
 
-    socketio.emit('my response', json, callback=messageReceived)
+    emit('my response', json, callback=messageReceived)
     
 if __name__ == "__main__":
     socketio.run(app, debug=True)
