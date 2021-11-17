@@ -8,8 +8,12 @@ socket = io()
 	})
 
     socket.on('connect', function(){
-    document.getElementById("chat").innerHTML+="<br>"+"User Connected"
-    socket.emit('my event', {data: 'User Connected'})
+        var message = d3.select('#chat')
+        var list = message.append('ol')
+        var item = list.append('li')
+        item.text('USER CONNECTED')
+
+        socket.emit('my event', {data: 'User Connected'})
 
 
     });
