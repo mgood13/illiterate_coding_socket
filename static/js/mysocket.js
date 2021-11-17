@@ -8,6 +8,7 @@ socket = io()
 	})
 
     socket.on('connect', function(){
+    document.getElementById('chat').innerHTML+="<br>"+"User Connected"
     socket.emit('my event', {data: 'User Connected'})
 
 
