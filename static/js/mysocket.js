@@ -8,13 +8,13 @@ socket = io()
 	})
 
     socket.on('connect', function(){
-     console.log('Here')
     socket.emit('my event', {data: 'User Connected'})
 
 
     });
 
     socket.on('my response', function(msg){
-    console.log('Received Message')
-    document.getElementById('chat').innerHTML+="<br>"+"User Connected"
+        console.log(msg)
+        document.getElementById('chat').innerHTML+="<br>"+"User Connected"
+        document.getElementById('chat').innerHTML+="<br>"+msg
     });
