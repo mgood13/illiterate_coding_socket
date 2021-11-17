@@ -12,7 +12,7 @@ socket = io()
 
     socket.on('connect', function(){
         var message = d3.select('#chat')
-        var item = list.append('li')
+        var item = message.append('li')
         item.text('USER CONNECTED')
 
         socket.emit('my event', {data: 'User Connected', mess: message})
