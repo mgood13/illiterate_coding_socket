@@ -9,6 +9,8 @@ socket = io()
 
     socket.on('connect', function(){
     socket.emit('my event', {data: 'User Connected'})
+    document.getElementById('chat').innerHTML+="<br>"+"User Connected"
+
     });
 
     socket.on('my response', function(msg){
