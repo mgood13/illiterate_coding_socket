@@ -13,7 +13,7 @@ socket = io()
         var item = list.append('li')
         item.text('USER CONNECTED')
 
-        socket.emit('my event', {data: 'User Connected'})
+        socket.emit('my event', {data: 'User Connected', mess: message})
 
 
     });
