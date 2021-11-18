@@ -22,5 +22,33 @@ socket = io()
 
     socket.on('my response', function(msg){
         console.log(msg)
-        document.getElementById('chat').innerHTML+="<br>"+msg
+    });
+
+    $('#inputname').on('click', function(){
+        var username = $('#myname').val()
+        socket.send();
+
+        if ($('#myname').data('chat') == '0'){
+                var chatroomval = '0'
+            }
+            else{
+                var chatroomval = $('#myname').data('chat')
+            }
+
+    });
+
+    $('#chatsetect').on('click', function(){
+        var chat = $('#chatroom').val()
+        console.log(chat)
+        console.log(d3.select('#myname')[0])
+
+        if(d3.select('#myname')[0] == null){
+            var mychat = d3.select('#MyMessage')
+            mychat.attr('data-chat', chat)
+        }
+        else{
+            var myinput = d3.select('#myname')
+            myinput.attr('data-chat', chat)
+        }
+
     });
