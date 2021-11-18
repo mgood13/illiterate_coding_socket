@@ -45,7 +45,7 @@ $(document).ready(function(){
         var chat = $('#chatroom').val()
         console.log(chat)
         console.log(d3.select('#myname'))
-        console.log(d3.select('#myname').value())
+        console.log(d3.select('#myname').value)
 
         if(d3.select('#myname')[0] == null){
         console.log('here')
