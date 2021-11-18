@@ -41,7 +41,7 @@ $(document).ready(function(){
 
     });
 
-    $('#chatsetect').on('click', function(){
+    $('#chatselect').on('click', function(){
         var chat = $('#chatroom').val()
         console.log(chat)
         console.log(d3.select('#myname')[0])
