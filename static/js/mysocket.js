@@ -1,5 +1,9 @@
 socket = io()
-	function sendMessage () {
+
+
+$(document).ready(function(){
+
+    function sendMessage () {
 		socket.emit("message",document.getElementById("chat-input").value)
 	}
 
@@ -52,3 +56,10 @@ socket = io()
         }
 
     });
+
+
+
+
+
+
+})
