@@ -47,10 +47,12 @@ $(document).ready(function(){
         console.log(d3.select('#myname')[0])
 
         if(d3.select('#myname')[0] == null){
+        console.log('here')
             var mychat = d3.select('#MyMessage')
             mychat.attr('data-chat', chat)
         }
         else{
+        console.log('actually here')
             var myinput = d3.select('#myname')
             myinput.attr('data-chat', chat)
         }
