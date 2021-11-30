@@ -3,9 +3,12 @@ socket = io()
 
 $(document).ready(function(){
 
-    function sendMessage () {
-		socket.emit("message",document.getElementById("chat-input").value)
-	}
+    //function sendMessage () {}
+
+	$('#chat-input').on('click', function(){
+        socket.emit("message",document.getElementById("chat-input").value)
+
+	})
 
 	socket.on("new_message",(data)=>{
 		// document.getElementById("chat").innerHTML+="<br>"+data;
@@ -59,10 +62,6 @@ $(document).ready(function(){
         }
 
     });
-
-
-
-
 
 
 })
