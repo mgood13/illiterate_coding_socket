@@ -49,7 +49,7 @@ $(document).ready(function(){
 
         if(d3.select('#myname')[0] == null){
         console.log('here')
-            var mychat = d3.select('#MyMessage')
+            var mychat = d3.select('#chat-input ')
             mychat.attr('data-chat', chat)
         }
         else{
