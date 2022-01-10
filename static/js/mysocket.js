@@ -5,7 +5,7 @@ $(document).ready(function(){
 
     //function sendMessage () {}
 
-	$('#chat-input').on('click', function(){
+	$('#send-input').on('click', function(){
         socket.emit("message",document.getElementById("chat-input").value)
 
 	})
