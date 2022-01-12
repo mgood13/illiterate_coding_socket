@@ -17,7 +17,7 @@ $(document).ready(function(){
 
 		var outerlist = d3.select('#chatlist')
 		var item = outerlist.append('li')
-		item.text(data)
+		item.text(myroom + ": " + data)
 
 		$('#chat-input').val('');
 	})
