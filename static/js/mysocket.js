@@ -3,7 +3,6 @@ socket = io()
 
 $(document).ready(function(){
 
-    //function sendMessage () {}
 
 	$('#send-input').on('click', function(){
         socket.emit("message",document.getElementById("chat-input").value)

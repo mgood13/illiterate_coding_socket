@@ -16,6 +16,7 @@ def handleMessage(data):
     print(data)
     emit("new_message",data,broadcast=True)
 
+
 def messageReceived(methods = ['GET', 'POST']):
     print('Got your message')
 
