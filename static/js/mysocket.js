@@ -17,7 +17,7 @@ $(document).ready(function(){
 	})
 
     socket.on('connect', function(){
-        var message = d3.select('#chat')
+        var message = d3.select('#chatlist')
         var item = message.append('li')
         item.text('USER CONNECTED')
 
