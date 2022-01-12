@@ -11,7 +11,7 @@ $(document).ready(function(){
 
 	socket.on("new_message",(data)=>{
 		// document.getElementById("chat").innerHTML+="<br>"+data;
-		var myroom = $('#chat-input').data('chat')
+		var myroom = $('#chat-input').attr('data-chat')
 		console.log('I am calling from room:')
 		console.log(myroom)
 
