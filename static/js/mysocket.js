@@ -11,7 +11,7 @@ $(document).ready(function(){
 
 	socket.on("new_message",(data)=>{
 		// document.getElementById("chat").innerHTML+="<br>"+data;
-		var outerlist = d3.select('#chat')
+		var outerlist = d3.select('#chatlist')
 		var item = outerlist.append('li')
 		item.text(data)
 	})
