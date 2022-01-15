@@ -11,7 +11,7 @@ $(document).ready(function(){
         var info = {'message': text, 'channel': $('#chat-input').attr('data-chat'), 'username': $('#chat-input').attr('data-name')}
 
 
-        socket.emit("message",{data: information})
+        socket.emit("message",{data: info})
 
 	})
 
