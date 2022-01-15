@@ -49,11 +49,11 @@ $(document).ready(function(){
         socket.send();
 
         var body = d3.select('#skeleton')
-        var header = body.insert('h5').text(`Hello ${username}. Welcome to the chat app`)
+        var header = body.insert('h4').text(`Hello ${username}. Welcome to the chat app`)
         var localchat = body.insert('h7').text(`You are currently talking on channel: ${channel}`)
 
-        var myinput = body.append('input')
-        myinput.attr('id', 'MyMessage')
+        var myinput = body.insert('input')
+        myinput.attr('id', 'chat-input')
         myinput.attr('data-name', username)
         myinput.attr('data-chat', channel)
 
@@ -61,6 +61,10 @@ $(document).ready(function(){
         send.text('SEND')
         send.attr('id', 'sendbutton')
 
+        var chat = body.insert('ul')
+        chat.attr('id', 'chatlist')
+        var speak = chat.append('li')
+        speak.text(`${username} is now speaking on this channel`)
     });
 
 
