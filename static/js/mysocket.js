@@ -8,15 +8,19 @@ $(document).ready(function(){
 
         var text = document.getElementById("chat-input").value
 
-        var info = {'message': text, 'channel': $('#chat-input').attr('data-chat')}
+        var info = {'message': text, 'channel': $('#chat-input').attr('data-chat'), 'username': $('#chat-input').attr('data-name')}
 
 
-        socket.emit("message",)
+        socket.emit("message",{data: information})
 
 	})
 
 	socket.on("new_message",(data)=>{
-		// document.getElementById("chat").innerHTML+="<br>"+data;
+
+        console.log(data)
+        console.log(data.username)
+        console.log(data.channel)
+
 		var myroom = $('#chat-input').attr('data-chat')
 		console.log('I am calling from room:')
 		console.log(myroom)
