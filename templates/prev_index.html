@@ -1,0 +1,53 @@
+<html>
+<head>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.3.2/socket.io.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+
+</head>
+
+
+<body>
+
+    <h3>Welcome to the Chat App</h3>
+    <h5 id = 'myusername'></h5>
+
+    <div>
+        <input type = 'text' id = 'myname' data-chat = '0'>
+        <button id = 'inputname'>Submit</button>
+
+        <input type = 'text' id = 'chatroom'>
+        <button id = 'chatselect'>Choose</button>
+    </div>
+
+<div id = 'skeleton'>
+
+
+</div>
+
+<input id="chat-input" type="text" data-chat = 0 data-name = 'noname'> <button id = 'send-input'>Send Message</button>
+
+    <div class = 'row'>
+    <div class = 'col-md-4'></div>
+    <div class = 'col-md-4'>
+        <ul class="list-group" id = 'chatlist'>
+        </ul>
+    </div>
+    </div>
+
+
+
+
+<script src="https://d3js.org/d3.v5.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/d3-tip/0.9.1/d3-tip.js"></script>
+<script type="text/javascript" src="static/js/mysocket.js"></script>
+
+</body>
+
+
+</html>
+
+
+
+

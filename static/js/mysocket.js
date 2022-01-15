@@ -5,7 +5,13 @@ $(document).ready(function(){
 
 
 	$('#send-input').on('click', function(){
-        socket.emit("message",document.getElementById("chat-input").value)
+
+        var text = document.getElementById("chat-input").value
+
+        var info = {'message': text, 'channel': $('#chat-input').attr('data-chat')}
+
+
+        socket.emit("message",)
 
 	})
 
@@ -26,9 +32,7 @@ $(document).ready(function(){
         var message = d3.select('#chatlist')
         var item = message.append('li')
         item.text('USER CONNECTED')
-
         socket.emit('my event', {data: 'User Connected', mess: message})
-
 
     });
 
@@ -38,30 +42,27 @@ $(document).ready(function(){
 
     $('#inputname').on('click', function(){
         var username = $('#myname').val()
+        var chatroom = $('#initial_chat').val()
+
+        console.log(username)
+        console.log(chatroom)
         socket.send();
 
-        if ($('#myname').data('chat') == '0'){
-                var chatroomval = '0'
-            }
-            else{
-                var chatroomval = $('#myname').data('chat')
-            }
 
+        var body = d3.select('#skeleton')
     });
+
 
     $('#chatselect').on('click', function(){
         var chat = $('#chatroom').val()
-        console.log(chat)
-        console.log(d3.select('#myname'))
-        console.log(d3.select('#myname').value)
+
 
         if(d3.select('#myname')[0] == null){
-        console.log('here')
-            var mychat = d3.select('#chat-input ')
+            var mychat = d3.select('#chat-input')
             mychat.attr('data-chat', chat)
         }
+
         else{
-        console.log('actually here')
             var myinput = d3.select('#myname')
             myinput.attr('data-chat', chat)
         }
