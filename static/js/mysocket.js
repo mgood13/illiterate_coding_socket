@@ -42,14 +42,25 @@ $(document).ready(function(){
 
     $('#inputname').on('click', function(){
         var username = $('#myname').val()
-        var chatroom = $('#initial_chat').val()
+        var channel= $('#initial_chat').val()
 
         console.log(username)
         console.log(chatroom)
         socket.send();
 
-
         var body = d3.select('#skeleton')
+        var header = body.insert('h5').text(`Hello ${username}. Welcome to the chat app`)
+        var localchat = body.insert('h7').text(`You are currently talking on channel: ${channel}`)
+
+        var myinput = body.append('input')
+        myinput.attr('id', 'MyMessage')
+        myinput.attr('data-name', username)
+        myinput.attr('data-chat', channel)
+
+        var send = body.append('button')
+        send.text('SEND')
+        send.attr('id', 'sendbutton')
+
     });
 
 
