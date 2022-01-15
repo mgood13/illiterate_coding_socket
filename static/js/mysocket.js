@@ -6,7 +6,7 @@ $(document).ready(function(){
 
 	$('#send-input').on('click', function(){
 
-        var text = document.getElementById("chat-input").value
+        var text = $("chat-input").value
 
         var info = {'message': text, 'channel': $('#chat-input').attr('data-chat'), 'username': $('#chat-input').attr('data-name')}
 
@@ -74,21 +74,6 @@ $(document).ready(function(){
     });
 
 
-    $('#chatselect').on('click', function(){
-        var chat = $('#chatroom').val()
-
-
-        if(d3.select('#myname')[0] == null){
-            var mychat = d3.select('#chat-input')
-            mychat.attr('data-chat', chat)
-        }
-
-        else{
-            var myinput = d3.select('#myname')
-            myinput.attr('data-chat', chat)
-        }
-
-    });
 
 
 })
