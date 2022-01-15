@@ -52,6 +52,8 @@ $(document).ready(function(){
         var header = body.insert('h4').text(`Hello ${username}. Welcome to the chat app`)
         var localchat = body.insert('h7').text(`You are currently talking on channel: ${channel}`)
 
+        body.append('br')
+
         var myinput = body.insert('input')
         myinput.attr('id', 'chat-input')
         myinput.attr('data-name', username)
@@ -59,7 +61,7 @@ $(document).ready(function(){
 
         var send = body.append('button')
         send.text('SEND')
-        send.attr('id', 'sendbutton')
+        send.attr('id', 'send-input')
 
         var chat = body.insert('ul')
         chat.attr('id', 'chatlist')
