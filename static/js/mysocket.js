@@ -45,7 +45,7 @@ $(document).ready(function(){
         var channel= $('#initial_chat').val()
 
         console.log(username)
-        console.log(chatroom)
+        console.log(channel)
         socket.send();
 
         var body = d3.select('#skeleton')
