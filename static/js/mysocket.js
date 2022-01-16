@@ -9,8 +9,8 @@ $(document).ready(function(){
 	socket.on("new_message",(data)=>{
 
         console.log(data)
-        console.log(data.username)
-        console.log(data.channel)
+        console.log(data.data.username)
+        console.log(data.data.channel)
 
 		var myroom = $('#chat-input').attr('data-chat')
 		console.log('I am calling from room:')
@@ -63,22 +63,15 @@ $(document).ready(function(){
         speak.text(`${username} is now speaking on this channel`)
 
 
-        send.on("click", () => {
-        console.log('Called')
-        var text = $("chat-input").value
+            send.on("click", () => {
+            console.log('Called')
+            var text = $("chat-input").value
 
-        var info = {'message': text, 'channel': $('#chat-input').attr('data-chat'), 'username': $('#chat-input').attr('data-name')}
+            var info = {'message': text, 'channel': $('#chat-input').attr('data-chat'), 'username': $('#chat-input').attr('data-name')}
 
-        console.log(info)
-        socket.emit("message", {data: info})
-        });
-
-
-
-
-
-
-
+            console.log(info)
+            socket.emit("message", {data: info})
+            });
 
     });
 
