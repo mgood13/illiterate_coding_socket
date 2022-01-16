@@ -4,9 +4,7 @@ socket = io()
 $(document).ready(function(){
 
 
-	$('#send-input').on('click', function(){
-        console.log('HELLO???????????')
-	})
+
 
 	socket.on("new_message",(data)=>{
 
@@ -64,6 +62,19 @@ $(document).ready(function(){
         var speak = chat.append('li')
         speak.text(`${username} is now speaking on this channel`)
     });
+
+
+	$('#send-input').on('click', function(){
+
+        console.log('Called')
+        var text = $("chat-input").value
+
+        var info = {'message': text, 'channel': $('#chat-input').attr('data-chat'), 'username': $('#chat-input').attr('data-name')}
+
+        console.log(info)
+        socket.emit("message", {data: info})
+	})
+
 
 
 
