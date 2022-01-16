@@ -19,7 +19,7 @@ $(document).ready(function(){
 		var myroom = $('#chat-input').attr('data-chat')
 		var myname = $('#chat-input').attr('data-name')
 
-        if (incomingchannel == mychannel){
+        if (incomingchannel == myroom){
             var outerlist = d3.select('#chatlist')
             var item = outerlist.append('li')
             item.text(myname + ": " + incomingmessage)
