@@ -61,11 +61,9 @@ $(document).ready(function(){
         chat.attr('id', 'chatlist')
         var speak = chat.append('li')
         speak.text(`${username} is now speaking on this channel`)
-    });
 
 
-	$('#send-input').on('click', function(){
-
+        send.on("click", => {
         console.log('Called')
         var text = $("chat-input").value
 
@@ -73,7 +71,18 @@ $(document).ready(function(){
 
         console.log(info)
         socket.emit("message", {data: info})
-	})
+        });
+
+
+
+
+
+
+
+
+    });
+
+
 
 
 
