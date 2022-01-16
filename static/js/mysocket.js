@@ -33,10 +33,10 @@ $(document).ready(function(){
 	})
 
     socket.on('connect', function(){
-        var message = d3.select('#chatlist')
-        var item = message.append('li')
+        var myMessage = d3.select('#chatlist')
+        var item = myMessage.append('li')
         item.text('USER CONNECTED')
-        socket.emit('my event', {data: 'User Connected', mess: message})
+        socket.emit('my event', {data: 'User Connected', mess: myMessage})
 
     });
 
