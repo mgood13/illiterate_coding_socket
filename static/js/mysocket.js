@@ -12,14 +12,24 @@ $(document).ready(function(){
         console.log(data.data.username)
         console.log(data.data.channel)
 
+        var incomingname = data.data.username
+        var incomingchannel = data.data.channel
+        var incomingmessage = data.data.message
+
 		var myroom = $('#chat-input').attr('data-chat')
-		console.log('I am calling from room:')
-		console.log(myroom)
+		var myname = $('#chat-input').attr('data-name')
 
-		var outerlist = d3.select('#chatlist')
-		var item = outerlist.append('li')
-		item.text(myroom + ": " + data)
-
+        if (incomingchannel == mychannel){
+            var outerlist = d3.select('#chatlist')
+            var item = outerlist.append('li')
+            item.text(myname + ": " + incomingmessage)
+            if (incomingname == myname){
+                item.attr('fill', '#2CAB23') // Dark Green
+            }
+            else{
+                item.attr('fill', '#C1312A') // Dark Red
+            }
+        }
 		$('#chat-input').val('');
 	})
 
@@ -65,7 +75,7 @@ $(document).ready(function(){
 
             send.on("click", () => {
             console.log('Called')
-            var text = $("chat-input").value
+            var text = $("chat-input").val()
 
             var info = {'message': text, 'channel': $('#chat-input').attr('data-chat'), 'username': $('#chat-input').attr('data-name')}
 
