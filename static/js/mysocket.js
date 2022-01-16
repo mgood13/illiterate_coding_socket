@@ -6,6 +6,7 @@ $(document).ready(function(){
 
 	$('#send-input').on('click', function(){
 
+        console.log('Called')
         var text = $("chat-input").value
 
         var info = {'message': text, 'channel': $('#chat-input').attr('data-chat'), 'username': $('#chat-input').attr('data-name')}
