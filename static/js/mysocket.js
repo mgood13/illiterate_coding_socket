@@ -63,7 +63,7 @@ $(document).ready(function(){
         speak.text(`${username} is now speaking on this channel`)
 
 
-        send.on("click", => {
+        send.on("click", () => {
         console.log('Called')
         var text = $("chat-input").value
 
