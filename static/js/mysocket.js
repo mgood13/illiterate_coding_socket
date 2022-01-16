@@ -12,7 +12,7 @@ $(document).ready(function(){
 
         console.log(info)
         socket.emit("message", {data: info})
-
+        socket.send()
 	})
 
 	socket.on("new_message",(data)=>{
@@ -50,7 +50,6 @@ $(document).ready(function(){
 
         console.log(username)
         console.log(channel)
-        socket.send();
 
         var body = d3.select('#skeleton')
         var header = body.insert('h4').text(`Hello ${username}. Welcome to the chat app`)
