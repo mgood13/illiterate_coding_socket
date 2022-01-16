@@ -22,12 +22,14 @@ $(document).ready(function(){
         if (incomingchannel == myroom){
             var outerlist = d3.select('#chatlist')
             var item = outerlist.append('li')
-            item.text(myname + ": " + incomingmessage)
+            item.text(incomingname + ": " + incomingmessage)
+
             if (incomingname == myname){
-                item.style('fill', 'ForestGreen') // Dark Green
+            console.log('my message')
+                item.style('color', 'ForestGreen') // Dark Green
             }
             else{
-                item.style('fill', 'FireBrick') // Dark Red
+                item.style('color', 'FireBrick') // Dark Red
             }
         }
 		$('#chat-input').val('');
