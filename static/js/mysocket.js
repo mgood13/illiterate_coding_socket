@@ -24,10 +24,10 @@ $(document).ready(function(){
             var item = outerlist.append('li')
             item.text(myname + ": " + incomingmessage)
             if (incomingname == myname){
-                item.attr('fill', '#2CAB23') // Dark Green
+                item.attr('fill', 'ForestGreen') // Dark Green
             }
             else{
-                item.attr('fill', '#C1312A') // Dark Red
+                item.attr('fill', 'FireBrick') // Dark Red
             }
         }
 		$('#chat-input').val('');
