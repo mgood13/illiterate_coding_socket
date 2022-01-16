@@ -6,6 +6,7 @@ $(document).ready(function(){
 
 	$('#send-input').on('click', function(){
 
+        console.log('Here we go')
         var text = $("chat-input").value
 
         var info = {'message': text, 'channel': $('#chat-input').attr('data-chat'), 'username': $('#chat-input').attr('data-name')}
@@ -50,7 +51,7 @@ $(document).ready(function(){
 
         console.log(username)
         console.log(channel)
-        socket.send();
+
 
         var body = d3.select('#skeleton')
         var header = body.insert('h4').text(`Hello ${username}. Welcome to the chat app`)
@@ -70,6 +71,7 @@ $(document).ready(function(){
         var chat = body.insert('ul')
         chat.attr('id', 'chatlist')
         var speak = chat.append('li')
+        console.log('Testing here')
         speak.text(`${username} is now speaking on this channel`)
     });
 
