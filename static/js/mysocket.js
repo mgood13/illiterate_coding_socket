@@ -9,6 +9,26 @@ $(document).ready(function(){
 	socket.on("new_message",(data)=>{
 
         console.log(data)
+        var myroom = $('#chat-input').attr('data-chat')
+		var myname = $('#chat-input').attr('data-name')
+
+
+        if (data.data == 'User Connected'){
+            if (data.channel == myroom){
+                var list = d3.select('#chatlist')
+                var item = list.append('li')
+                item.text(myname + ' has joined this channel')
+
+
+            }
+
+
+
+
+
+        }
+        else{
+
         console.log(data.data.username)
         console.log(data.data.channel)
 
@@ -16,8 +36,7 @@ $(document).ready(function(){
         var incomingchannel = data.data.channel
         var incomingmessage = data.data.message
 
-		var myroom = $('#chat-input').attr('data-chat')
-		var myname = $('#chat-input').attr('data-name')
+
 
         if (incomingchannel == myroom){
             var outerlist = d3.select('#chatlist')
@@ -33,6 +52,11 @@ $(document).ready(function(){
             }
         }
 		$('#chat-input').val('');
+
+
+
+        }
+
 	})
 
     socket.on('connect', function(){
@@ -73,7 +97,7 @@ $(document).ready(function(){
         chat.attr('id', 'chatlist')
         var speak = chat.append('li')
 
-        socket.emit('message', {data: 'User Connected'})
+        socket.emit('message', {data: 'User Connected', channel: $('#chat-input').attr('data-chat')})
         speak.text(`${username} is now speaking on this channel`)
 
 
