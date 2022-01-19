@@ -14,7 +14,6 @@ def index():
 @socketio.on("message")
 def handleMessage(data):
     print(data)
-
     emit("new_message",data,broadcast=True)
 
 

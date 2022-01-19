@@ -8,9 +8,9 @@ $(document).ready(function(){
 
 	socket.on("new_message",(data)=>{
 
-        if (data.data.message == 'connect'){
-            console.log('User Connected')
-        }
+        console.log(data)
+        console.log(data.data.username)
+        console.log(data.data.channel)
 
         var incomingname = data.data.username
         var incomingchannel = data.data.channel
@@ -40,8 +40,6 @@ $(document).ready(function(){
         var item = myMessage.append('li')
         item.text('USER CONNECTED')
         socket.emit('my event', {data: 'User Connected', mess: myMessage})
-
-        socket.emit("message", {message: 'connect'})
 
     });
 
@@ -74,6 +72,8 @@ $(document).ready(function(){
         var chat = body.insert('ul')
         chat.attr('id', 'chatlist')
         var speak = chat.append('li')
+
+        socket.emit('message', {data: 'User Connected'})
         speak.text(`${username} is now speaking on this channel`)
 
 
