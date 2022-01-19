@@ -17,7 +17,7 @@ $(document).ready(function(){
             if (data.channel == myroom){
                 var list = d3.select('#chatlist')
                 var item = list.append('li')
-                item.text(myname + ' has joined this channel')
+                item.text(data.user + ' has joined this channel')
 
 
             }
@@ -97,7 +97,7 @@ $(document).ready(function(){
         chat.attr('id', 'chatlist')
         var speak = chat.append('li')
 
-        socket.emit('message', {data: 'User Connected', channel: $('#chat-input').attr('data-chat')})
+        socket.emit('message', {data: 'User Connected', channel: $('#chat-input').attr('data-chat'), user: $('#chat-input').attr('data-name')})
 
 
             send.on("click", () => {
