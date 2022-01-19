@@ -8,9 +8,9 @@ $(document).ready(function(){
 
 	socket.on("new_message",(data)=>{
 
-        console.log(data)
-        console.log(data.data.username)
-        console.log(data.data.channel)
+        if (data.data.message == 'connect'){
+            console.log('User Connected')
+        }
 
         var incomingname = data.data.username
         var incomingchannel = data.data.channel
@@ -40,6 +40,8 @@ $(document).ready(function(){
         var item = myMessage.append('li')
         item.text('USER CONNECTED')
         socket.emit('my event', {data: 'User Connected', mess: myMessage})
+
+        socket.emit("message", {message: 'connect'})
 
     });
 
