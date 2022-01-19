@@ -98,7 +98,6 @@ $(document).ready(function(){
         var speak = chat.append('li')
 
         socket.emit('message', {data: 'User Connected', channel: $('#chat-input').attr('data-chat')})
-        speak.text(`${username} is now speaking on this channel`)
 
 
             send.on("click", () => {
