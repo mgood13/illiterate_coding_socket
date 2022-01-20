@@ -14,7 +14,7 @@ def index():
 def newpage():
     return render_template('newpage.html')
 
-@socket.io('redirection')
+@socketio.on('redirection')
 def redirect():
     myURL ='/newpage'
     emit('pageRedirect', myURL)
