@@ -117,6 +117,7 @@ $(document).ready(function(){
 
     socket.on('pageRedirect', (data) =>{
         console.log(data)
+        window.location = data
     })
 
 
