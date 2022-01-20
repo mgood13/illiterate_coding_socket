@@ -17,7 +17,7 @@ def newpage():
 @socketio.on('redirection')
 def redirect():
     myURL ='/newpage'
-    emit('pageRedirect', myURL)
+    emit('pageRedirect', myURL, broadcast = True)
 
 @socketio.on("message")
 def handleMessage(data):
