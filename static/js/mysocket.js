@@ -18,14 +18,7 @@ $(document).ready(function(){
                 var list = d3.select('#chatlist')
                 var item = list.append('li')
                 item.text(data.user + ' has joined this channel')
-
-
             }
-
-
-
-
-
         }
         else{
 
@@ -79,6 +72,16 @@ $(document).ready(function(){
         console.log(channel)
 
         var body = d3.select('#skeleton')
+        var changepage = body.insert('button')
+        changepage.text('GO')
+        changepage.attr('id', 'pageload')
+
+        changepage.on('click', () =>{
+            socket.emit('redirection')
+            console.log('success')
+        })
+
+
         var header = body.insert('h4').text(`Hello ${username}. Welcome to the chat app`)
         var localchat = body.insert('h7').text(`You are currently talking on channel: ${channel}`)
 
@@ -101,7 +104,6 @@ $(document).ready(function(){
 
 
             send.on("click", () => {
-            console.log('Called')
             var text = $("#chat-input").val()
 
             var info = {'message': text, 'channel': $('#chat-input').attr('data-chat'), 'username': $('#chat-input').attr('data-name')}
@@ -113,6 +115,9 @@ $(document).ready(function(){
     });
 
 
+    socket.on('pageRedirect', (data) =>{
+        console.log(data)
+    })
 
 
 

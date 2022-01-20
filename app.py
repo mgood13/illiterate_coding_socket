@@ -10,6 +10,14 @@ def index():
     return render_template('index.html')
 
 
+@app.route('/newpage')
+def newpage():
+    return render_template('newpage.html')
+
+@socket.io('redirection')
+def redirect():
+    myURL ='/newpage'
+    emit('pageRedirect', myURL)
 
 @socketio.on("message")
 def handleMessage(data):
