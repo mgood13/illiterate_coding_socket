@@ -19,4 +19,12 @@ $(document).ready(function(){
                     .attr('stroke', 'black')
                     .attr('fill', '#69a3b2')
 
+    var redfill = box.append('rect')
+                    .attr('x', 110)
+                    .attr('y', 30)
+                    .attr('width', 50)
+                    .attr('height', 50)
+                    .attr('stroke', 'black')
+                    .attr('fill', '#FF5733')
+
 })
