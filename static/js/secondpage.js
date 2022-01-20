@@ -6,7 +6,12 @@ $(document).ready(function(){
     console.log('HELLO')
 
     var hand = d3.select('#hand')
-    var box = hand.append('rect')
+    var box = hand.append('svg')
+                    .attr('width', 300)
+                    .attr('height', 300)
+
+
+    var fill = box.append('rect')
                     .attr('x', 30)
                     .attr('y', 30)
                     .attr('width', 50)
