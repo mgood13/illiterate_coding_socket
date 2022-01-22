@@ -2,8 +2,9 @@ from flask import Flask, render_template, make_response, redirect, session
 from flask_socketio import SocketIO, send, emit
 import os
 
+APP_SETTINGS = './config.py'
 app = Flask(__name__)
-app.secret_key = 'abcdef'
+app.config.fromenvvar('APP_SETTINGS')
 socketio = SocketIO(app)
 
 
