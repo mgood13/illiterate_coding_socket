@@ -1,6 +1,6 @@
 from flask import Flask, render_template, make_response, redirect, session
 from flask_socketio import SocketIO, send, emit
-from flask-session import Session
+from flask_session import Session
 import os
 
 
