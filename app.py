@@ -15,6 +15,7 @@ def index():
 
 @app.route('/newpage')
 def newpage():
+    print('{} is moving to another page'.format(session.username))
     return render_template('newpage.html')
 
 @socketio.on('redirection')
@@ -25,6 +26,11 @@ def redirect():
 @socketio.on("message")
 def handleMessage(data):
     print(data)
+
+    if 'username' in data:
+        print('adding {} to the session'.format(data.username))
+        session['username'] = data.username
+
     emit("new_message",data,broadcast=True)
 
 
