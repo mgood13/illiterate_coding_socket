@@ -28,8 +28,8 @@ def handleMessage(data):
     print(data)
 
     if 'user' in data:
-        print('adding {} to the session'.format(data.username))
-        session['username'] = data.username
+        print('adding {} to the session'.format(data.user))
+        session['username'] = data.user
 
     emit("new_message",data,broadcast=True)
 
