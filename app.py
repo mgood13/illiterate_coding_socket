@@ -1,9 +1,14 @@
 from flask import Flask, render_template, make_response, redirect, session
 from flask_socketio import SocketIO, send, emit
+from flask.ext.session import Session
 import os
 
 
 app = Flask(__name__)
+
+
+SESSION_TYPE = 'redis'
+sess = Session(app)
 app.config['SECRET_KEY'] = 'ABCDEFG'
 app.config['SESSION_COOKIE_NAME'] = "my_session"
 app.config["SESSION_PERMANENT"] = False
