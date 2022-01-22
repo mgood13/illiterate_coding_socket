@@ -15,6 +15,9 @@ def index():
 
 @app.route('/newpage')
 def newpage():
+    print(session)
+    print(session.get('username'))
+
     print('{} is moving to another page'.format(session.get("username", "Unknown")))
     return render_template('newpage.html')
 
