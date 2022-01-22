@@ -4,7 +4,7 @@ import os
 
 APP_SETTINGS = './config.py'
 app = Flask(__name__)
-app.config.from_envvar('APP_SETTINGS')
+app.config.from_envvar(APP_SETTINGS)
 socketio = SocketIO(app)
 
 
