@@ -3,7 +3,7 @@ from flask_socketio import SocketIO, send, emit
 import os
 
 app = Flask(__name__)
-app.secret_key = '1234'
+app.secret_key = 'abcdef'
 socketio = SocketIO(app)
 
 
@@ -33,6 +33,7 @@ def handleMessage(data):
     if 'user' in data:
         print('adding {} to the session'.format(data['user']))
         session['username'] = data['user']
+        session.modified = True
         print(session)
 
     emit("new_message",data,broadcast=True)
