@@ -15,7 +15,7 @@ def index():
 
 @app.route('/newpage')
 def newpage():
-    print('{} is moving to another page'.format(session['username']))
+    print('{} is moving to another page'.format(session.get("username", "Unknown")))
     return render_template('newpage.html')
 
 @socketio.on('redirection')
