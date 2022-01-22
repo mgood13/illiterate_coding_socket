@@ -2,7 +2,7 @@ from flask import Flask, render_template, make_response, redirect, session
 from flask_socketio import SocketIO, send, emit
 import os
 
-APP_SETTINGS = os.environ(config.py)
+APP_SETTINGS = os.environ('config')
 app = Flask(__name__)
 app.config.from_envvar(APP_SETTINGS)
 socketio = SocketIO(app)
