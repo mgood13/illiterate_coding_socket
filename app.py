@@ -27,7 +27,7 @@ def redirect():
 def handleMessage(data):
     print(data)
 
-    if 'username' in data:
+    if 'user' in data:
         print('adding {} to the session'.format(data.username))
         session['username'] = data.username
 
