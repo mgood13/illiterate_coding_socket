@@ -11,6 +11,7 @@ socketio = SocketIO(app)
 
 @app.route('/')
 def index():
+    print('loading homepage')
     return render_template('index.html')
 
 
