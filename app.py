@@ -1,9 +1,12 @@
-from flask import Flask, render_template, make_response, redirect
+from flask import Flask, render_template, make_response, redirect, session
 from flask_socketio import SocketIO, send, emit
 import os
 
 app = Flask(__name__)
+app.secret_key = '1234'
 socketio = SocketIO(app)
+
+
 
 @app.route('/')
 def index():
@@ -27,6 +30,7 @@ def handleMessage(data):
 
 def messageReceived(methods = ['GET', 'POST']):
     print('Got your message')
+
 
 @socketio.on('my event')
 def handle_my_custom_event(json, methods = ['GET', 'POST']):
