@@ -45,11 +45,14 @@ $(document).ready(function(){
             }
         }
 		$('#chat-input').val('');
-
-
-
         }
 
+	})
+
+	socket.on('addpeep', (data) => {
+        var peeps = d3.select('#peeps')
+        var item = peeps.append('li')
+        item.text(data.name)
 	})
 
     socket.on('connect', function(){
@@ -103,6 +106,7 @@ $(document).ready(function(){
         var speak = chat.append('li')
 
         socket.emit('message', {data: 'User Connected', channel: $('#chat-input').attr('data-chat'), user: $('#chat-input').attr('data-name')})
+        socket.emit('addition', {name: username})
 
 
             send.on("click", () => {
@@ -113,6 +117,8 @@ $(document).ready(function(){
             console.log(info)
             socket.emit("message", {data: info})
             });
+
+
 
     });
 

@@ -38,6 +38,12 @@ def handleMessage(data):
     emit("new_message",data,broadcast=True)
 
 
+@socketio.on('addition')
+def addpeep(data):
+    emit('addpeep', data, broadcast = True)
+
+
+
 def messageReceived(methods = ['GET', 'POST']):
     print('Got your message')
 
