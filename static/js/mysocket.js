@@ -68,6 +68,8 @@ $(document).ready(function(){
         var username = $('#myname').val()
         var channel= $('#initial_chat').val()
 
+        localStorage.setItem('name', username)
+
         console.log(username)
         console.log(channel)
 

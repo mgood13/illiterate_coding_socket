@@ -5,6 +5,11 @@ $(document).ready(function(){
 
     console.log('HELLO')
 
+    var intro = d3.select('#greeting')
+    var name = localStorage.getItem('name')
+    intro.text(`Welcome ${name} behold the squares`)
+
+
     var hand = d3.select('#hand')
     var box = hand.append('svg')
                     .attr('width', 300)

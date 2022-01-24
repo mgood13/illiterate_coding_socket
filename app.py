@@ -1,23 +1,15 @@
 from flask import Flask, render_template, make_response, redirect, session
 from flask_socketio import SocketIO, send, emit
-from flask_session import Session
 import os
 
-
 app = Flask(__name__)
-
-
-SESSION_TYPE = 'redis'
-sess = Session(app)
-app.config['SECRET_KEY'] = 'ABCDEFG'
-app.config.from_object(__name__)
+app.secret_key = '12341234'
 socketio = SocketIO(app)
 
 
 
 @app.route('/')
 def index():
-    print('loading homepage')
     return render_template('index.html')
 
 
@@ -41,7 +33,6 @@ def handleMessage(data):
     if 'user' in data:
         print('adding {} to the session'.format(data['user']))
         session['username'] = data['user']
-        session.modified = True
         print(session)
 
     emit("new_message",data,broadcast=True)
