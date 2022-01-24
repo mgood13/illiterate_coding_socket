@@ -50,6 +50,8 @@ $(document).ready(function(){
 	})
 
 	socket.on('addpeep', (data) => {
+	console.log('adding someone')
+	console.log(data)
         var peeps = d3.select('#peeps')
         var item = peeps.append('li')
         item.text(data.name)

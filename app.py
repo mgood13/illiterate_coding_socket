@@ -40,6 +40,7 @@ def handleMessage(data):
 
 @socketio.on('addition')
 def addpeep(data):
+    print('adding someone')
     emit('addpeep', data, broadcast = True)
 
 
