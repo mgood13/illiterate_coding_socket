@@ -65,8 +65,11 @@ def addpeep(data):
 
 
     print('Players Currently Present:')
-    print(storage_df['players'].tolist())
-    emit('addpeep', data, broadcast = True)
+    all_players = storage_df['players'].tolist()
+    print(all_players)
+    player_data = {data: all_players}
+
+    emit('addpeep', player_data, broadcast = True)
 
 
 
