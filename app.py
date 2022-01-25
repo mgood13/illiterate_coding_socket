@@ -49,20 +49,22 @@ def addpeep(data):
     files = os.listdir()
     print(files)
     if 'playerlog.csv' in files:
-        player_storage = pd.read_csv('playerlog.csv')
-        print(player_storage)
-        print(player_storage['players'].tolist()[0])
+        storage_df = pd.read_csv('playerlog.csv')
 
-
+        player_name = [data['name']]
+        df_length = len(storage_df)
+        storage_df.loc[df_length] = player_name
 
     else:
         storage_df = pd.DataFrame.from_dict(storage)
         print('Success')
         print(storage_df)
-        storage_df.to_csv('playerlog.csv')
+        storage_df.to_csv('playerlog.csv', index = False)
         print(os.listdir())
 
 
+    print('Players Currently Present:')
+    print(storage_df['players'].tolist())
     emit('addpeep', data, broadcast = True)
 
 
