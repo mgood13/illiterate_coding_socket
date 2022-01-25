@@ -53,7 +53,7 @@ $(document).ready(function(){
         console.log(data)
         all_players = data.data
         var list = d3.select('#peeps')
-        list.empty()
+        list.innerHTML = ''
 
         for (var element of all_players){
             console.log(element)
