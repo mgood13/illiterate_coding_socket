@@ -51,6 +51,10 @@ def addpeep(data):
     if 'playerlog.csv' in files:
         player_storage = pd.read_csv('playerlog.csv')
         print(player_storage)
+        print(player_storage['players'].tolist()[0])
+
+
+
     else:
         storage_df = pd.DataFrame.from_dict(storage)
         print('Success')
