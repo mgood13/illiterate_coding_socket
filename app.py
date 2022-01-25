@@ -1,6 +1,7 @@
 from flask import Flask, render_template, make_response, redirect, session
 from flask_socketio import SocketIO, send, emit
 import os
+import pandas as pd
 
 app = Flask(__name__)
 app.secret_key = '12341234'
@@ -41,6 +42,23 @@ def handleMessage(data):
 @socketio.on('addition')
 def addpeep(data):
     print('adding someone')
+    print(data)
+
+    storage = {'players': data['name']}
+
+    files = os.listdir()
+    print(files)
+    if 'playerlog.csv' in files:
+        player_storage = pd.read_csv('playerlog.csv')
+        print(player_storage)
+    else:
+        storage_df = pd.DataFrame.from_dict(storage)
+        print('Success')
+        print(storage_df)
+        storage_df.to_csv('playerlog.csv')
+        print(os.listdir())
+
+
     emit('addpeep', data, broadcast = True)
 
 
