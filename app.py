@@ -44,7 +44,7 @@ def addpeep(data):
     print('adding someone')
     print(data)
 
-    storage = {'players': data['name']}
+    storage = {'players': [data['name']]}
 
     files = os.listdir()
     print(files)
@@ -52,7 +52,7 @@ def addpeep(data):
         player_storage = pd.read_csv('playerlog.csv')
         print(player_storage)
     else:
-        storage_df = pd.DataFrame.from_dict(storage, index = [1])
+        storage_df = pd.DataFrame.from_dict(storage)
         print('Success')
         print(storage_df)
         storage_df.to_csv('playerlog.csv')
