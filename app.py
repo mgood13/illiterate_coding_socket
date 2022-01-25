@@ -54,6 +54,7 @@ def addpeep(data):
         player_name = [data['name']]
         df_length = len(storage_df)
         storage_df.loc[df_length] = player_name
+        storage_df.to_csv('playerlog.csv', index = False)
 
     else:
         storage_df = pd.DataFrame.from_dict(storage)
