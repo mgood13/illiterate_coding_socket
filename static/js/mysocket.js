@@ -52,9 +52,14 @@ $(document).ready(function(){
 	socket.on('addpeep', (data) => {
         console.log(data)
         all_players = data.data
+        var list = d3.select('#peeps')
+        list.empty()
 
         for (var element of all_players){
             console.log(element)
+            var item = list.append('li')
+            item.text(element)
+
         }
 
 	})
