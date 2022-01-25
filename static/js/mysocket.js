@@ -51,6 +51,11 @@ $(document).ready(function(){
 
 	socket.on('addpeep', (data) => {
         console.log(data)
+        all_players = data.data
+
+        for (var element of all_players){
+            console.log(element)
+        }
 
 	})
 
