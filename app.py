@@ -52,7 +52,7 @@ def addpeep(data):
         player_storage = pd.read_csv('playerlog.csv')
         print(player_storage)
     else:
-        storage_df = pd.DataFrame.from_dict(storage)
+        storage_df = pd.DataFrame.from_dict(storage, index = [1])
         print('Success')
         print(storage_df)
         storage_df.to_csv('playerlog.csv')
