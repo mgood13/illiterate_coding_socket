@@ -55,9 +55,9 @@ $(document).ready(function(){
         })
         */
 
-        $('#red_box, #blue_box').on('click', (button)=>{
+        $('#red_box, #blue_box').on('click', ()=>{
             console.log('hello?')
-            console.log(button.attr('data-color'))
+            console.log($(this).attr('data-color'))
 
 
         })
