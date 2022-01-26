@@ -53,7 +53,7 @@ $(document).ready(function(){
         */
 
         (fill, redfill).on('click', ()=>{
-            console.log(this.attr('data-color'))
+            console.log(this)
 
 
         })
