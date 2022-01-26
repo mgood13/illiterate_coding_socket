@@ -26,8 +26,10 @@ $(document).ready(function(){
 
         fill.on('click', () => {
             console.log(`${name} has selected the blue box`)
-            var box = d3.select('#game_tracker')
-            box.textContent += `\n ${name} has selected the blue box`
+            var list = d3.select('#game_tracker')
+            var item = list.append('li')
+            item.text(`${name} has selected the blue box`)
+
         })
 
     var redfill = box.append('rect')
@@ -40,8 +42,9 @@ $(document).ready(function(){
 
         redfill.on('click', () => {
             console.log(`${name} has selected the red box`)
-            var box = d3.select('#game_tracker')
-            box.textContent += `\n ${name} has selected the red box`
+            var list = d3.select('#game_tracker')
+            var item = list.append('li')
+            item.text(`${name} has selected the red box`)
 
 
 
