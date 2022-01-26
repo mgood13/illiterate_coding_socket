@@ -23,6 +23,7 @@ $(document).ready(function(){
                     .attr('height', 50)
                     .attr('stroke', 'black')
                     .attr('fill', '#69a3b2')
+                    .attr('id', 'blue_box')
                     .attr('data-color', 'Blue')
 /*
         fill.on('click', () => {
@@ -42,6 +43,7 @@ $(document).ready(function(){
                     .attr('height', 50)
                     .attr('stroke', 'black')
                     .attr('fill', '#FF5733')
+                    .attr('id', 'red_box')
                     .attr('data-color', 'Red')
 /*
         redfill.on('click', () => {
@@ -52,7 +54,7 @@ $(document).ready(function(){
         })
         */
 
-        (fill, redfill).on('click', ()=>{
+        $('#red_box', '#blue_box').on('click', ()=>{
             console.log(this)
 
 
