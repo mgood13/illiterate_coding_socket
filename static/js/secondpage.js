@@ -23,7 +23,8 @@ $(document).ready(function(){
                     .attr('height', 50)
                     .attr('stroke', 'black')
                     .attr('fill', '#69a3b2')
-
+                    .attr('data-color', 'Blue')
+/*
         fill.on('click', () => {
             console.log(`${name} has selected the blue box`)
             var list = d3.select('#game_tracker')
@@ -31,6 +32,13 @@ $(document).ready(function(){
             item.text(`${name} has selected the blue box`)
 
         })
+*/
+        fill.on('click', myfunc(this))
+
+    function myfunc(button){
+        button.attr('data-color')
+
+    }
 
     var redfill = box.append('rect')
                     .attr('x', 110)
@@ -39,6 +47,7 @@ $(document).ready(function(){
                     .attr('height', 50)
                     .attr('stroke', 'black')
                     .attr('fill', '#FF5733')
+                    .attr('data-color', 'Red')
 
         redfill.on('click', () => {
             console.log(`${name} has selected the red box`)
