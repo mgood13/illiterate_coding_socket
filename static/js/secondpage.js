@@ -25,6 +25,7 @@ $(document).ready(function(){
                     .attr('fill', '#69a3b2')
                     .attr('id', 'blue_box')
                     .attr('data-color', 'Blue')
+
 /*
         fill.on('click', () => {
             console.log(`${name} has selected the blue box`)
@@ -54,7 +55,7 @@ $(document).ready(function(){
         })
         */
 
-        $('#red_box', '#blue_box').on('click', ()=>{
+        $('#red_box, #blue_box').on('click', ()=>{
             console.log('hello?')
             console.log(this)
 
