@@ -57,7 +57,7 @@ $(document).ready(function(){
 
         $('#red_box, #blue_box').on('click', ()=>{
             console.log('hello?')
-            console.log($(this).attr('data-color'))
+            console.log($(this).data('color'))
 
 
         })
