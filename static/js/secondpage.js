@@ -36,7 +36,7 @@ $(document).ready(function(){
         fill.on('click', myfunc(this))
 
     function myfunc(button){
-        button.attr('data-color')
+        console.log(button)
 
     }
 
