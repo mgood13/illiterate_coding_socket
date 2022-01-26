@@ -53,7 +53,7 @@ $(document).ready(function(){
         console.log(data)
         all_players = data.data
         var list = d3.select('#peeps')
-        all_items = d3.selectAll('.play_list_element')
+        all_items = d3.selectAll('.player_list_element')
         all_items.remove()
 
         for (var element of all_players){
