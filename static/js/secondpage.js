@@ -33,12 +33,7 @@ $(document).ready(function(){
 
         })
 */
-        fill.on('click', myfunc(this))
 
-    function myfunc(button){
-        console.log(button)
-
-    }
 
     var redfill = box.append('rect')
                     .attr('x', 110)
@@ -48,13 +43,17 @@ $(document).ready(function(){
                     .attr('stroke', 'black')
                     .attr('fill', '#FF5733')
                     .attr('data-color', 'Red')
-
+/*
         redfill.on('click', () => {
             console.log(`${name} has selected the red box`)
             var list = d3.select('#game_tracker')
             var item = list.append('li')
             item.text(`${name} has selected the red box`)
+        })
+        */
 
+        (fill, redfill).on('click', ()=>{
+            console.log(this.attr.data-color)
 
 
         })
