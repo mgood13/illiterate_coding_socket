@@ -24,6 +24,12 @@ $(document).ready(function(){
                     .attr('stroke', 'black')
                     .attr('fill', '#69a3b2')
 
+        fill.on('click', () => {
+            console.log(`${name} has selected the blue box`)
+
+
+        })
+
     var redfill = box.append('rect')
                     .attr('x', 110)
                     .attr('y', 30)
@@ -31,5 +37,12 @@ $(document).ready(function(){
                     .attr('height', 50)
                     .attr('stroke', 'black')
                     .attr('fill', '#FF5733')
+
+        redfill.on('click', () => {
+            console.log(`${name} has selected the red box`)
+
+
+
+        })
 
 })
