@@ -25,6 +25,11 @@ $(document).ready(function(){
                     .attr('fill', '#69a3b2')
                     .attr('id', 'blue_box')
                     .attr('data-color', 'Blue')
+                    .attr('data-toggle', 'popover')
+                    .attr('title', 'A NICE TITLE???')
+                    .attr('data_placement', 'top')
+                    .attr('data-content', 'POPOVER TEXT')
+                    .attr('data-trigger', 'focus')
 
 /*
         fill.on('click', () => {
@@ -47,6 +52,7 @@ $(document).ready(function(){
                     .attr('id', 'red_box')
                     .attr('data-color', 'Red')
                     .attr('data-toggle', 'popover')
+                    .attr('title', 'A NICE TITLE???')
                     .attr('data_placement', 'top')
                     .attr('data-content', 'POPOVER TEXT')
                     .attr('data-trigger', 'focus')
@@ -66,7 +72,7 @@ $(document).ready(function(){
 
             var color_selected = $(this).data('color')
             var mydata = {'username': name, 'selection': color_selected}
-            $(this).popover()
+            $(this).popover({container: 'body'})
 
 
 
