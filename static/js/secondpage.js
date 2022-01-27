@@ -49,20 +49,21 @@ $(document).ready(function(){
         */
 
         $('#red_box, #blue_box').on('click', function(){
-
+           // $(this).popover('hide')
 
             var color_selected = $(this).data('color')
             var mydata = {'username': name, 'selection': color_selected}
 
 
 
-
+/*
             $(this).popover({
             'container': 'body',
             'placement': 'top',
             'content': 'It is not your turn.',
             'trigger': 'focus'
             }).popover('show')
+            */
 
 
             socket.emit('card_select', mydata)
@@ -71,18 +72,43 @@ $(document).ready(function(){
 
         socket.on('card_return', function(data){
             console.log(data)
-            $('.popover').popover('hide')
+
+            if (data.response == 'Accepted'){
+                console.log(data.selection)
+                console.log(data.username)
+
+                var myname = data.username
+                var myselection = data.selection
+
+                var list = d3.select('#game_tracker')
+                var item = list.append('li')
+                item.text(`${myname} has selected the ${myselection} box`)
+
+            }
+            else{
+                var body = d3.select('body')
+                var outer_div = body.append('div')
+                outer_div.attr('class', 'modal')
+                outer_div.attr('tabindex', '-1')
+                outer_div.attr('role', 'dialog')
+
+                var cont = outer_div.append('div')
+                cont.attr('class', 'modal-content')
+                var bod = cont.append('div')
+                bod.attr('class', 'modal-body')
+                var title = bod.append('h3')
+                title.text('NOT YOUR TURN')
+
+                var foot = cont.append('div')
+                foot.attr('class', 'modal-footer')
+
+                var button = foot.append('button')
+                button.attr('data-dismiss', 'modal')
+                button.text('Dismiss')
+
+            }
 
 
-            console.log(data.selection)
-            console.log(data.username)
-
-            var myname = data.username
-            var myselection = data.selection
-
-            var list = d3.select('#game_tracker')
-            var item = list.append('li')
-            item.text(`${myname} has selected the ${myselection} box`)
 
         })
 
