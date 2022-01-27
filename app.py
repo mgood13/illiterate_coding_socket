@@ -88,10 +88,23 @@ def addpeep(data):
     emit('addpeep', player_data, broadcast = True)
 
 
+
+
 @socketio.on('card_select')
 def cardSelection(data, methods = ['GET', 'POST']):
     print(data)
-    print('Got your message')
+
+    storage_df = pd.read_csv('playerlog.csv')
+    turn = storage_df.loc[storage_df['players'] == data['username'],:]['Turn'].tolist()[0]
+
+    if turn:
+        print('valid player')
+        data['response'] = 'Accepted'
+
+    else:
+        print('invalid player')
+        data['response'] = 'Denied'
+
 
     emit('card_return', data, broadcast = True)
 

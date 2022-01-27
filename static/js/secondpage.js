@@ -50,8 +50,11 @@ $(document).ready(function(){
 
         $('#red_box, #blue_box').on('click', function(){
 
+
             var color_selected = $(this).data('color')
             var mydata = {'username': name, 'selection': color_selected}
+
+
 
 
             $(this).popover({
