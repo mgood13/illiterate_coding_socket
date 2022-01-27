@@ -62,7 +62,7 @@ $(document).ready(function(){
             'placement': 'top',
             'content': 'It is not your turn.',
             'trigger': 'focus'
-            })
+            }).popover('show')
 
 
             socket.emit('card_select', mydata)
@@ -71,6 +71,7 @@ $(document).ready(function(){
 
         socket.on('card_return', function(data){
             console.log(data)
+            $('.popover').popover('hide')
 
 
             console.log(data.selection)
