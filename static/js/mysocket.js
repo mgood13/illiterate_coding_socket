@@ -138,8 +138,10 @@ $(document).ready(function(){
 
 
     socket.on('pageRedirect', (data) =>{
+        console.log(data)
+        var url = data.url
 
-        window.location = data
+        window.location = url
     })
 
 

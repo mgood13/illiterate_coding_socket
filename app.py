@@ -31,7 +31,9 @@ def redirect(data):
 
 
     myURL ='/newpage'
-    emit('pageRedirect', myURL, broadcast = True)
+
+    packet = {'url': myURL, 'position': player_position, 'user': first_user}
+    emit('pageRedirect', packet, broadcast = True)
 
 @socketio.on("message")
 def handleMessage(data):
