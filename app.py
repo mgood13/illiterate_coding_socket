@@ -26,14 +26,26 @@ def redirect(data):
     all_players = player_df['players'].tolist()
 
     player_position = all_players.index(first_user)
+
+    turn = []
+    for val in range(len(all_players)):
+        if val == player_position:
+            turn.append(True)
+        else:
+            turn.append(False)
+
+    player_df['Turn'] = turn
+    player_df.to_csv('playerlog.csv', index = False)
+
+
     print(player_df)
     print(player_position)
 
 
     myURL ='/newpage'
 
-    packet = {'url': myURL, 'position': player_position, 'user': first_user}
-    emit('pageRedirect', packet, broadcast = True)
+
+    emit('pageRedirect', myURL, broadcast = True)
 
 @socketio.on("message")
 def handleMessage(data):
