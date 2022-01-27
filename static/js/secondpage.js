@@ -63,7 +63,7 @@ $(document).ready(function(){
 
             var mydata = {'username': name, 'selection': color_selected}
 
-            emit('card_select', mydata)
+            socket.emit('card_select', mydata)
 
         })
 
