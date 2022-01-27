@@ -2,8 +2,8 @@ socket = io()
 
 
 $(document).ready(function(){
+    $("[data-toggle=popover]").popover();
 
-    console.log('HELLO')
 
     var intro = d3.select('#greeting')
     var name = localStorage.getItem('name')
