@@ -10,9 +10,6 @@ $(document).ready(function(){
     outer_div.attr('role', 'dialog')
     outer_div.attr('id', 'invalid_player_modal')
 
-
-
-    <div class="modal-dialog modal-dialog-centered" role="document">
     var inner_div = outer_div.append('div')
     inner_div.attr('class', 'modal-dialog modal-dialog-centered')
     inner_div.attr('role', 'document')
