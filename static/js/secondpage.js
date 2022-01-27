@@ -2,7 +2,9 @@ socket = io()
 
 
 $(document).ready(function(){
-    $("[data-toggle=popover]").popover();
+    $(function () {
+        $('[data-toggle="popover"]').popover()
+    })
 
 
     var intro = d3.select('#greeting')
