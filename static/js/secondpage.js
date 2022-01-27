@@ -71,11 +71,11 @@ $(document).ready(function(){
             console.log(data)
 
 
-            console.log(data.data.selection)
-            console.log(data.data.username)
+            console.log(data.selection)
+            console.log(data.username)
 
-            var myname = data.data.username
-            var myselection = data.data.selection
+            var myname = data.username
+            var myselection = data.selection
 
             item.text(`${myname} has selected the ${myselection} box`)
 
