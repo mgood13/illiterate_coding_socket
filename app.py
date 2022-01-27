@@ -72,9 +72,12 @@ def addpeep(data):
     emit('addpeep', player_data, broadcast = True)
 
 
-
-def messageReceived(methods = ['GET', 'POST']):
+@socketio.on('card_select')
+def cardSelection(data, methods = ['GET', 'POST']):
+    print(data)
     print('Got your message')
+
+    emit('card_return', data, broadcast = True)
 
 
 @socketio.on('my event')
@@ -83,7 +86,7 @@ def handle_my_custom_event(json, methods = ['GET', 'POST']):
 
     # pass to sql
 
-    emit('my response', json, callback=messageReceived)
+    emit('my response', json)
     
 if __name__ == "__main__":
     socketio.run(app, debug=True)

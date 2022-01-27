@@ -60,14 +60,24 @@ $(document).ready(function(){
             var color_selected = $(this).data('color')
             var list = d3.select('#game_tracker')
             var item = list.append('li')
-            console.log(color_selected)
-            console.log(name)
+
+            var mydata = {'username': name, 'selection': color_selected}
+
+            emit('card_select', mydata)
+
+        })
+
+        socket.on('card_return', function(data){
+            console.log(data)
 
 
-            item.text(`${name} has selected the ${color_selected} box`)
+            console.log(data.data.selection)
+            console.log(data.data.username)
 
+            var myname = data.data.username
+            var myselection = data.data.selection
 
-
+            item.text(`${myname} has selected the ${myselection} box`)
 
         })
 
