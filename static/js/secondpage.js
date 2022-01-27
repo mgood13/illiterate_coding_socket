@@ -46,9 +46,13 @@ $(document).ready(function(){
                     .attr('fill', '#FF5733')
                     .attr('id', 'red_box')
                     .attr('data-color', 'Red')
+                    .attr('data-toggle', 'popover')
+                    .attr('data_placement', 'top')
+                    .attr('data-content', 'POPOVER TEXT')
+                    .attr('data-trigger', 'focus')
 
 
-        $('#redfill').popover({content: 'CLICKED'})
+
 /*
         redfill.on('click', () => {
             console.log(`${name} has selected the red box`)
@@ -62,7 +66,7 @@ $(document).ready(function(){
 
             var color_selected = $(this).data('color')
             var mydata = {'username': name, 'selection': color_selected}
-
+            $(this).popover()
 
 
 
