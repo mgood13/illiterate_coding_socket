@@ -46,10 +46,7 @@ $(document).ready(function(){
                     .attr('fill', '#FF5733')
                     .attr('id', 'red_box')
                     .attr('data-color', 'Red')
-                    .attr('data-container', 'body')
-                    .attr('data-toggle', 'popover')
-                    .attr('data-placement', 'top')
-                    .attr('data-content', 'IT IS NOT YOUR TURN')
+
 /*
         redfill.on('click', () => {
             console.log(`${name} has selected the red box`)
