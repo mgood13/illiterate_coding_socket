@@ -47,6 +47,8 @@ $(document).ready(function(){
                     .attr('id', 'red_box')
                     .attr('data-color', 'Red')
 
+
+        $('#redfill').popover({content: 'CLICKED'})
 /*
         redfill.on('click', () => {
             console.log(`${name} has selected the red box`)
