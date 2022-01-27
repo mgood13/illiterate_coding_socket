@@ -62,7 +62,7 @@ $(document).ready(function(){
             'placement': 'top',
             'content': 'It is not your turn.',
             'trigger': 'focus'
-            }).popover('show')
+            })
 
 
             socket.emit('card_select', mydata)
