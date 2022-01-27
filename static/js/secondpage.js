@@ -56,10 +56,13 @@ $(document).ready(function(){
         */
 
         $('#red_box, #blue_box').on('click', function(){
-            console.log('hello?')
-            let element = $(this)
-            console.log(element)
-            console.log($(this).data('color'))
+
+            var color_selected = $(this).data('color')
+            var list = d3.select('#game_tracker')
+            var item = list.append('li')
+            item.text(item.text(`${name} has selected the ${color_selected} box`))
+
+
 
 
         })
