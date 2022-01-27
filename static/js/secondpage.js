@@ -58,9 +58,6 @@ $(document).ready(function(){
         $('#red_box, #blue_box').on('click', function(){
 
             var color_selected = $(this).data('color')
-            var list = d3.select('#game_tracker')
-            var item = list.append('li')
-
             var mydata = {'username': name, 'selection': color_selected}
 
             socket.emit('card_select', mydata)
@@ -77,6 +74,8 @@ $(document).ready(function(){
             var myname = data.username
             var myselection = data.selection
 
+            var list = d3.select('#game_tracker')
+            var item = list.append('li')
             item.text(`${myname} has selected the ${myselection} box`)
 
         })
