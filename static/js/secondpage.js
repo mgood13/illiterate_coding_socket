@@ -3,6 +3,34 @@ socket = io()
 
 $(document).ready(function(){
 
+    var body = d3.select('body')
+    var outer_div = body.append('div')
+    outer_div.attr('class', 'modal')
+    outer_div.attr('tabindex', '-1')
+    outer_div.attr('role', 'dialog')
+    outer_div.attr('id', 'invalid_player_modal')
+
+
+
+    <div class="modal-dialog modal-dialog-centered" role="document">
+    var inner_div = outer_div.append('div')
+    inner_div.attr('class', 'modal-dialog modal-dialog-centered')
+    inner_div.attr('role', 'document')
+
+    var cont = inner_div.append('div')
+    cont.attr('class', 'modal-content')
+    var bod = cont.append('div')
+    bod.attr('class', 'modal-body')
+    var title = bod.append('h3')
+    title.text('NOT YOUR TURN')
+
+    var foot = cont.append('div')
+    foot.attr('class', 'modal-footer')
+
+    var button = foot.append('button')
+    button.attr('data-dismiss', 'modal')
+    button.text('Dismiss')
+
 
     var intro = d3.select('#greeting')
     var name = localStorage.getItem('name')
@@ -86,25 +114,7 @@ $(document).ready(function(){
 
             }
             else{
-                var body = d3.select('body')
-                var outer_div = body.append('div')
-                outer_div.attr('class', 'modal')
-                outer_div.attr('tabindex', '-1')
-                outer_div.attr('role', 'dialog')
-
-                var cont = outer_div.append('div')
-                cont.attr('class', 'modal-content')
-                var bod = cont.append('div')
-                bod.attr('class', 'modal-body')
-                var title = bod.append('h3')
-                title.text('NOT YOUR TURN')
-
-                var foot = cont.append('div')
-                foot.attr('class', 'modal-footer')
-
-                var button = foot.append('button')
-                button.attr('data-dismiss', 'modal')
-                button.text('Dismiss')
+                $('#invalid_player_modal').modal('show')
 
             }
 
