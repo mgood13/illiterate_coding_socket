@@ -64,7 +64,7 @@ $(document).ready(function(){
             console.log(name)
 
 
-            item.text(item.text(`${name} has selected the ${color_selected} box`))
+            item.text(`${name} has selected the ${color_selected} box`)
 
 
 
