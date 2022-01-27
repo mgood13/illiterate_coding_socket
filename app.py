@@ -16,15 +16,18 @@ def index():
 
 @app.route('/newpage')
 def newpage():
-    print(session)
-    print(session.get('username'))
-
-    print('{} is moving to another page'.format(session.get("username", "Unknown")))
     return render_template('newpage.html')
 
 @socketio.on('redirection')
 def redirect(data):
-    print(data)
+    first_user = data['name']
+    all_players = pd.read_csv('playerlog.csv')['players'].tolist()
+
+    player_position = all_players.index(first_user)
+
+    print(player_position)
+
+
     myURL ='/newpage'
     emit('pageRedirect', myURL, broadcast = True)
 
