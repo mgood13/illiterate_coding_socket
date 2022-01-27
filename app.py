@@ -20,6 +20,7 @@ def newpage():
 
 @socketio.on('redirection')
 def redirect(data):
+    print('I am here')
     first_user = data['name']
     all_players = pd.read_csv('playerlog.csv')['players'].tolist()
 
@@ -45,13 +46,10 @@ def handleMessage(data):
 
 @socketio.on('addition')
 def addpeep(data):
-    print('adding someone')
-    print(data)
 
     storage = {'players': [data['name']]}
 
     files = os.listdir()
-    print(files)
     if 'playerlog.csv' in files:
         storage_df = pd.read_csv('playerlog.csv')
 
@@ -62,7 +60,6 @@ def addpeep(data):
 
     else:
         storage_df = pd.DataFrame.from_dict(storage)
-        print('Success')
         print(storage_df)
         storage_df.to_csv('playerlog.csv', index = False)
         print(os.listdir())
