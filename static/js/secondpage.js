@@ -2,9 +2,6 @@ socket = io()
 
 
 $(document).ready(function(){
-    $(function () {
-        $('[data-toggle="popover"]').popover()
-    })
 
 
     var intro = d3.select('#greeting')
@@ -32,17 +29,6 @@ $(document).ready(function(){
                     .attr('data_placement', 'top')
                     .attr('data-content', 'POPOVER TEXT')
                     .attr('data-trigger', 'focus')
-
-/*
-        fill.on('click', () => {
-            console.log(`${name} has selected the blue box`)
-            var list = d3.select('#game_tracker')
-            var item = list.append('li')
-            item.text(`${name} has selected the blue box`)
-
-        })
-*/
-
 
     var redfill = box.append('rect')
                     .attr('x', 110)
@@ -74,8 +60,11 @@ $(document).ready(function(){
 
             var color_selected = $(this).data('color')
             var mydata = {'username': name, 'selection': color_selected}
-            $(this).popover({container: 'body'})
-
+            $(this).popover({
+            'container': 'body',
+            'placement': 'top',
+            'content': 'WHATEVER'
+            })
 
 
             socket.emit('card_select', mydata)
