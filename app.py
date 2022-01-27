@@ -22,10 +22,11 @@ def newpage():
 def redirect(data):
     print('I am here')
     first_user = data['name']
-    all_players = pd.read_csv('playerlog.csv')['players'].tolist()
+    player_df = pd.read_csv('playerlog.csv')
+    all_players = player_df['players'].tolist()
 
     player_position = all_players.index(first_user)
-
+    print(player_df)
     print(player_position)
 
 
