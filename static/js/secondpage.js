@@ -60,6 +60,10 @@ $(document).ready(function(){
             var color_selected = $(this).data('color')
             var list = d3.select('#game_tracker')
             var item = list.append('li')
+            console.log(color_selected)
+            console.log(name)
+
+
             item.text(item.text(`${name} has selected the ${color_selected} box`))
 
 
