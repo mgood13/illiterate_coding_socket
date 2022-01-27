@@ -52,10 +52,13 @@ $(document).ready(function(){
 
             var color_selected = $(this).data('color')
             var mydata = {'username': name, 'selection': color_selected}
+
+
             $(this).popover({
             'container': 'body',
             'placement': 'top',
-            'content': 'WHATEVER'
+            'content': 'It is not your turn.',
+            'trigger': 'focus'
             }).popover('show')
 
 

@@ -23,7 +23,8 @@ def newpage():
     return render_template('newpage.html')
 
 @socketio.on('redirection')
-def redirect():
+def redirect(data):
+    print(data)
     myURL ='/newpage'
     emit('pageRedirect', myURL, broadcast = True)
 

@@ -93,7 +93,10 @@ $(document).ready(function(){
         changepage.attr('id', 'pageload')
 
         changepage.on('click', () =>{
-            socket.emit('redirection')
+            var myname = localStorage.getItem('name')
+            var userdata = {'name': myname}
+
+            socket.emit('redirection', userdata)
             console.log('success')
         })
 
@@ -135,7 +138,7 @@ $(document).ready(function(){
 
 
     socket.on('pageRedirect', (data) =>{
-        console.log(data)
+
         window.location = data
     })
 
