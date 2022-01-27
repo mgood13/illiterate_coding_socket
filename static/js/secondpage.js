@@ -56,7 +56,7 @@ $(document).ready(function(){
             'container': 'body',
             'placement': 'top',
             'content': 'WHATEVER'
-            })
+            }).popover('show')
 
 
             socket.emit('card_select', mydata)
