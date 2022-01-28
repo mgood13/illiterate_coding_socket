@@ -95,15 +95,16 @@ $(document).ready(function(){
 
                 var send_data = {'selection': myselection, 'id': data.id}
                 console.log('Turn Rotation')
-                socket.emit('turn_rotate', send_data)
+
+                if (data.username == LocalStorage.getItem('name')){
+                    socket.emit('turn_rotate', send_data)
+                }
 
             }
 
             else{
                 $('#invalid_player_modal').modal('show')
             }
-
-
 
         })
 

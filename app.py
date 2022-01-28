@@ -123,7 +123,6 @@ def turn_rotation(data):
         new_index = current_index + 1
     new_turn = []
     for i in range(num_players):
-
         if i == new_index:
             new_turn.append(True)
         else:
