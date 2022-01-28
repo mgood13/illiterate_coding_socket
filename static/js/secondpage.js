@@ -64,19 +64,11 @@ $(document).ready(function(){
 
 
 
-/*
-        redfill.on('click', () => {
-            console.log(`${name} has selected the red box`)
-            var list = d3.select('#game_tracker')
-            var item = list.append('li')
-            item.text(`${name} has selected the red box`)
-        })
-        */
-
         $('#red_box, #blue_box').on('click', function(){
-           // $(this).popover('hide')
 
-            var color_selected = $(this).data('color')
+
+            var color_selected = $(this).attr('data-color')
+            print(`You have selected ${color_selected}`)
             var myid = $(this).attr('id')
             var mydata = {'username': name, 'selection': color_selected, 'id': myid}
 
