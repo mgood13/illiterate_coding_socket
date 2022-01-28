@@ -96,6 +96,7 @@ def cardSelection(data, methods = ['GET', 'POST']):
 
     storage_df = pd.read_csv('playerlog.csv')
     turn = storage_df.loc[storage_df['players'] == data['username'],:]['Turn'].tolist()[0]
+    print('Turn: {}'.format(turn))
 
     if turn:
         print('valid player')
@@ -114,7 +115,7 @@ def turn_rotation(data):
     turn_list = player_df['Turn'].tolist()
 
     current_index = turn_list.index(True)
-    print(current_index)
+    print('Current: {}'.format(current_index))
     num_players = len(turn_list)
     if (current_index == (num_players - 1)):
         new_index = 0
@@ -128,7 +129,8 @@ def turn_rotation(data):
         else:
             new_turn.append(False)
 
-    print(new_index)
+    print('New: {}'.format(new_index))
+    print('New Turn: {}'.format(new_turn))
 
     player_df['Turn'] = new_turn
     player_df.to_csv('playerlog.csv', index = False)

@@ -97,7 +97,6 @@ $(document).ready(function(){
                 console.log('Turn Rotation')
                 socket.emit('turn_rotate', send_data)
 
-
             }
 
             else{
