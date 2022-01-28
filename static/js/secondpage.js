@@ -101,6 +101,7 @@ $(document).ready(function(){
                 var item = list.append('li')
                 item.text(`${myname} has selected the ${myselection} box`)
 
+                console.log('Turn Rotation')
                 socket.emit('turn_rotate')
 
             }

@@ -114,6 +114,7 @@ def turn_rotation():
     turn_list = player_df['Turn'].tolist()
 
     current_index = turn_list.index(True)
+    print(current_index)
     num_players = len(turn_list)
     if (current_index == (num_players - 1)):
         new_index = 0
@@ -127,6 +128,7 @@ def turn_rotation():
         else:
             new_turn.append(False)
 
+    print(new_index)
 
     player_df['Turn'] = new_turn
     player_df.to_csv('playerlog.csv', index = False)
