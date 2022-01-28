@@ -1,6 +1,6 @@
 socket = io()
 
-
+colors = {'red': '#FF0602', 'green': '#61FF33', 'blue': '#0502FF', 'black': '#000000'}
 $(document).ready(function(){
 
     var body = d3.select('body')
@@ -46,7 +46,7 @@ $(document).ready(function(){
                     .attr('width', 50)
                     .attr('height', 50)
                     .attr('stroke', 'black')
-                    .attr('fill', '#69a3b2')
+                    .attr('fill', '#0502FF')
                     .attr('id', 'blue_box')
                     .attr('data-color', 'Blue')
 
@@ -57,7 +57,7 @@ $(document).ready(function(){
                     .attr('width', 50)
                     .attr('height', 50)
                     .attr('stroke', 'black')
-                    .attr('fill', '#FF5733')
+                    .attr('fill', '#FF0602')
                     .attr('id', 'red_box')
                     .attr('data-color', 'Red')
 
@@ -77,10 +77,8 @@ $(document).ready(function(){
            // $(this).popover('hide')
 
             var color_selected = $(this).data('color')
-            var mydata = {'username': name, 'selection': color_selected}
-
-
-
+            var myid = $(this).attr('id')
+            var mydata = {'username': name, 'selection': color_selected, 'id': myid}
 
 
             socket.emit('card_select', mydata)
@@ -101,13 +99,32 @@ $(document).ready(function(){
                 var item = list.append('li')
                 item.text(`${myname} has selected the ${myselection} box`)
 
-                console.log('Turn Rotation')
-                socket.emit('turn_rotate')
 
+
+                var send_data = {'selection': myselection, 'id': data.id}
+                console.log('Turn Rotation')
+                socket.emit('turn_rotate', send_data)
+
+                    for (var k = 0; k < Object.keys(colors).length; k++){
+                        if () {
+                        }
+                        else{
+
+                        }
+                    }
             }
+
             else{
                 $('#invalid_player_modal').modal('show')
             }
+
+
+
+        })
+
+        socket.on('change_card', function(data){
+        console.log('changing card')
+        console.log(data)
 
 
 

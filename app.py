@@ -109,7 +109,7 @@ def cardSelection(data, methods = ['GET', 'POST']):
     emit('card_return', data, broadcast = True)
 
 @socketio.on('turn_rotate')
-def turn_rotation():
+def turn_rotation(data):
     player_df = pd.read_csv('playerlog.csv')
     turn_list = player_df['Turn'].tolist()
 
@@ -132,6 +132,7 @@ def turn_rotation():
 
     player_df['Turn'] = new_turn
     player_df.to_csv('playerlog.csv', index = False)
+    emit('change_card',data, broadcast = True)
 
 
 
