@@ -105,13 +105,7 @@ $(document).ready(function(){
                 console.log('Turn Rotation')
                 socket.emit('turn_rotate', send_data)
 
-                    for (var k = 0; k < Object.keys(colors).length; k++){
-                        if () {
-                        }
-                        else{
 
-                        }
-                    }
             }
 
             else{
@@ -125,7 +119,16 @@ $(document).ready(function(){
         socket.on('change_card', function(data){
         console.log('changing card')
         console.log(data)
+/*
+        for (var k = 0; k < Object.keys(colors).length; k++){
+                if () {
+                }
+                else{
 
+                }
+            }
+
+        */
 
 
         })
