@@ -108,6 +108,30 @@ def cardSelection(data, methods = ['GET', 'POST']):
 
     emit('card_return', data, broadcast = True)
 
+@socketio.on('turn_rotate')
+def turn_rotation():
+    player_df = pd.read_csv('playerlog.csv')
+    turn_list = player_df['Turn'].tolist()
+
+    current_index = turn_list.index(True)
+    num_players = len(turn_list)
+    if (current_index == (num_players - 1)):
+        new_index = 0
+    else:
+        new_index = current_index + 1
+    new_turn = []
+    for i in range(num_players):
+
+        if i == new_index:
+            new_turn.append(True)
+        else:
+            new_turn.append(False)
+
+
+    player_df['Turn'] = new_turn
+    player_df.to_csv('playerlog.csv', index = False)
+
+
 
 @socketio.on('my event')
 def handle_my_custom_event(json, methods = ['GET', 'POST']):

@@ -19,7 +19,7 @@ $(document).ready(function(){
     var bod = cont.append('div')
     bod.attr('class', 'modal-body')
     var title = bod.append('h3')
-    title.text('NOT YOUR TURN')
+    title.text("It isn't your turn, please wait.")
 
     var foot = cont.append('div')
     foot.attr('class', 'modal-footer')
@@ -81,14 +81,6 @@ $(document).ready(function(){
 
 
 
-/*
-            $(this).popover({
-            'container': 'body',
-            'placement': 'top',
-            'content': 'It is not your turn.',
-            'trigger': 'focus'
-            }).popover('show')
-            */
 
 
             socket.emit('card_select', mydata)
@@ -109,10 +101,11 @@ $(document).ready(function(){
                 var item = list.append('li')
                 item.text(`${myname} has selected the ${myselection} box`)
 
+                socket.emit('turn_rotate')
+
             }
             else{
                 $('#invalid_player_modal').modal('show')
-
             }
 
 
