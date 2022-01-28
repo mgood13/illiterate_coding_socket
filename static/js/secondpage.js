@@ -143,7 +143,7 @@ $(document).ready(function(){
         console.log(shade)
         var square = d3.select(`#${data.id}`)
         square.attr('fill', `${shade}`)
-        square.attr('data-color', ${mycolor})
+        square.attr('data-color', `${mycolor}`)
 
 
 
