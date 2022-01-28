@@ -68,7 +68,7 @@ $(document).ready(function(){
 
 
             var color_selected = $(this).attr('data-color')
-            print(`You have selected ${color_selected}`)
+            console.log(`You have selected ${color_selected}`)
             var myid = $(this).attr('id')
             var mydata = {'username': name, 'selection': color_selected, 'id': myid}
 
