@@ -1,6 +1,6 @@
 socket = io()
 
-colors = {'red': '#FF0602', 'green': '#61FF33', 'blue': '#0502FF', 'black': '#000000'}
+colors = {'Red': '#FF0602', 'Green': '#61FF33', 'Blue': '#0502FF', 'Black': '#000000'}
 $(document).ready(function(){
 
     var body = d3.select('body')
@@ -117,18 +117,35 @@ $(document).ready(function(){
         })
 
         socket.on('change_card', function(data){
-        console.log('changing card')
-        console.log(data)
-/*
+
+
         for (var k = 0; k < Object.keys(colors).length; k++){
-                if () {
-                }
-                else{
+                var current_color = Object.keys(colors)[k]
+
+                if (data.selection == current_color) {
+                    if (k == (Object.keys(colors).length - 1)){
+                        var mycolor = Object.keys(colors)[0]
+                        var shade = colors[mycolor]
+                        break
+                    }
+                    else{
+                        var mycolor = Object.keys(colors)[k + 1]
+                        var shade = colors[mycolor]
+                        break
+                    }
 
                 }
+
             }
 
-        */
+        console.log('Color Switch')
+        console.log(mycolor)
+        console.log(shade)
+        var square = d3.select(`#${data.id}`)
+        square.attr('fill', `${shade}`)
+        square.attr('data-color', ${mycolor})
+
+
 
 
         })
